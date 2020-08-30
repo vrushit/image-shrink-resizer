@@ -1,3 +1,11 @@
 ### For Using the Project
 
-npm install
+## (FOR DEVELOPMENT)
+
+## Step :1
+
+# npm install
+
+## Step: 2
+
+# npm run dev
