@@ -1,3 +1,3 @@
 ### For Using the Project
 
-git install
+npm install
