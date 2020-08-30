@@ -7,6 +7,7 @@ function createMainWindow() {
     title: "Image Resizer",
     width: 500,
     height: 600,
+    icon: "./assets/Icon_256x256.png",
   });
 
   //   mainWindow.loadURL(`file://${__dirname}/app/index.html`);
