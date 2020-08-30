@@ -4,11 +4,13 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "nodemon --exec electron ."
   },
   "author": "Vrushit Bharucha",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^10.1.0"
+    "electron": "^10.1.0",
+    "nodemon": "^2.0.4"
   }
 }
