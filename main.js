@@ -54,7 +54,19 @@ app.on("ready", () => {
 });
 
 const menu = [
-  ...(isMac ? [{ roles: "appMenu" }] : []),
+  ...(isMac
+    ? [
+        {
+          label: app.name,
+          submenu: [
+            {
+              label: "About",
+              click: createAboutWindow,
+            },
+          ],
+        },
+      ]
+    : []),
 
   {
     // label: "File",
