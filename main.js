@@ -5,6 +5,8 @@ process.env.NODE_ENV = "development";
 const isDev = process.env.NODE_ENV !== "production" ? true : false;
 const isWindow = process.platform === "win32" ? true : false;
 
+const isMac = process.platform === "darwin" ? true : false;
+
 let mainWindow;
 
 function createMainWindow() {
@@ -24,8 +26,29 @@ function createMainWindow() {
 app.on("ready", () => {
   createMainWindow();
 
+  const mainMenu = Menu.buildFromTemplate(menu);
+  Menu.setApplicationMenu(mainMenu);
+
   mainWindow.on("closed", () => (mainWindow = null));
 });
+
+const menu = [
+  ...isMac(isMac ? [{ roles: "appMenu" }] : []),
+
+  {
+    label: "File",
+    submenu: [
+      {
+        label: "Quit",
+        click: () => app.quit(),
+      },
+    ],
+  },
+];
+
+if (isMac) {
+  menu.unshift({ role: "appMenu" });
+}
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
