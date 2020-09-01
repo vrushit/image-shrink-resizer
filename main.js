@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require("electron");
+const { app, BrowserWindow, Menu, globalShortcut } = require("electron");
 
 process.env.NODE_ENV = "development";
 
@@ -29,6 +29,11 @@ app.on("ready", () => {
   const mainMenu = Menu.buildFromTemplate(menu);
   Menu.setApplicationMenu(mainMenu);
 
+  globalShortcut.register("CmdOrCtrl+R", () => mainWindow.reload());
+  globalShortcut.register(isMac ? "Command+Alt+I" : "Ctrl+Shift+I", () =>
+    mainWindow.toggleDevTools()
+  );
+
   mainWindow.on("closed", () => (mainWindow = null));
 });
 
@@ -40,7 +45,7 @@ const menu = [
     submenu: [
       {
         label: "Quit",
-        accelerator: "Cmd0rCtrl+W",
+        accelerator: "CmdOrCtrl+W",
         click: () => app.quit(),
       },
     ],
