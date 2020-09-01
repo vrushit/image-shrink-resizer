@@ -46,10 +46,6 @@ const menu = [
   },
 ];
 
-if (isMac) {
-  menu.unshift({ role: "appMenu" });
-}
-
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
