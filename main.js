@@ -80,6 +80,20 @@ const menu = [
     role: "fileMenu",
   },
 
+  ...(isWindow
+    ? [
+        {
+          label: "Help",
+          submenu: [
+            {
+              label: "About",
+              click: createAboutWindow,
+            },
+          ],
+        },
+      ]
+    : []),
+
   ...(isDev
     ? [
         {
