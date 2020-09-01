@@ -41,15 +41,38 @@ const menu = [
   ...(isMac ? [{ roles: "appMenu" }] : []),
 
   {
-    label: "File",
-    submenu: [
-      {
-        label: "Quit",
-        accelerator: "CmdOrCtrl+W",
-        click: () => app.quit(),
-      },
-    ],
+    // label: "File",
+    // submenu: [
+    //   {
+    //     label: "Quit",
+    //     accelerator: "CmdOrCtrl+W",
+    //     click: () => app.quit(),
+    //   },
+    // ],
+    role: "fileMenu",
   },
+
+  ...(isDev
+    ? [
+        {
+          label: "Developer",
+          submenu: [
+            {
+              role: "reload",
+            },
+            {
+              role: "forcereload",
+            },
+            {
+              role: "separator",
+            },
+            {
+              role: "toggledevtools",
+            },
+          ],
+        },
+      ]
+    : []),
 ];
 
 if (isMac) {
