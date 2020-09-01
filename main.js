@@ -40,6 +40,7 @@ const menu = [
     submenu: [
       {
         label: "Quit",
+        accelerator: isMac ? "Command+W" : "Ctrl+W",
         click: () => app.quit(),
       },
     ],
